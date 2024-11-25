@@ -6,6 +6,6 @@ import steps.phone.GetListPhoneSteps;
 public class GetListPhoneTest extends BaseTest {
     @Override
     public InjectableStepsFactory stepsFactory() {
-        return new InstanceStepsFactory(configuration(), new GetListPhoneSteps());
+        return new InstanceStepsFactory(configuration(), new GetListPhoneSteps());//ok
     }
 }
