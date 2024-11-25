@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","154","Phone is not updated because id phone not existed","","Thu Nov 21 08:56:11 ICT 2024","passed","Thu Nov 21 08:56:11 ICT 2024","","","",""
+"","209","List of phones display details","","Thu Nov 21 08:56:03 ICT 2024","failed","Thu Nov 21 08:56:03 ICT 2024","","","",""
+"","959","User is added successfully","","Thu Nov 21 08:56:01 ICT 2024","passed","Thu Nov 21 08:56:02 ICT 2024","","","",""
+"","145","Phone is updated successfully","","Thu Nov 21 08:56:11 ICT 2024","passed","Thu Nov 21 08:56:11 ICT 2024","","","",""
+"","150","User is found by ID","","Thu Nov 21 08:56:05 ICT 2024","failed","Thu Nov 21 08:56:05 ICT 2024","","","",""
