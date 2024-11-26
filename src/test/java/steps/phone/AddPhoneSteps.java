@@ -25,12 +25,14 @@ public class AddPhoneSteps {
     public void givenICanCreateAPhone(String file) throws URISyntaxException, IOException {
         System.out.println("I can create a phone with request data json");
         String requestBody = JsonUtils.readDataJson(file);
+        System.out.println("dataJSON"+requestBody);
         String url = BASEURL+"/objects";
         this.response = CommonPhoneMethod.sendUrlByMethodWithRequestBody(url,HttpMethod.POST,requestBody);
         this.responseServices.setResponse(response);
     }
     @When("I process data")
     public void whenIProccessData() throws JsonProcessingException {
-        CommonPhoneMethod.savePhoneIDToGlobalVar(response.getBody());
+        System.out.println("JsonRecevie"+this.response.getBody());
+        CommonPhoneMethod.savePhoneIDToGlobalVar(this.response.getBody());
     }
 }

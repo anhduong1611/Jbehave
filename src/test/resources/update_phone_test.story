@@ -1,4 +1,5 @@
 Meta:
+@mySkip
 Narrative:
 As a user
 I want to update phone

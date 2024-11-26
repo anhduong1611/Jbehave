@@ -21,14 +21,7 @@ import static org.jbehave.core.reporters.Format.TXT;
 
 public class AllStoriesTest extends BaseTest {
     public static ResponseServices responseServices = new ResponseServices();
-    @Override
-    public List<String> storyPaths() {
-        return new StoryFinder().findPaths(
-                "src/test/resources",
-                "**/*.story",
-                ""
-        );
-    }
+
 
     @Override
     public InjectableStepsFactory stepsFactory() {

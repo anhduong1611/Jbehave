@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class CommonPhoneMethod {
-    public static ResponseEntity<String> sendUrlByMethodWithRequestBody(String url, HttpMethod method, String requestBody) throws URISyntaxException, IOException {
+    public static ResponseEntity<String>  sendUrlByMethodWithRequestBody(String url, HttpMethod method, String requestBody) throws URISyntaxException, IOException {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response;
         HttpHeaders headers = new HttpHeaders();
@@ -24,7 +24,8 @@ public class CommonPhoneMethod {
         try {
             response = restTemplate.exchange(url, method, request, String.class);
         } catch (HttpClientErrorException | HttpServerErrorException e) {
-            response = ResponseEntity.status(e.getStatusCode()).body("{\"error\": \"error"+e.getStatusText()+"\"}");
+            response = ResponseEntity.status(e.getStatusCode()).body("{\"error\": \"error"+e.getStatusCode()+"\"}");
+            System.out.println(response.getBody());
         } catch (Exception e) {
             response = ResponseEntity.status(500).body("{\"error\": \"Internal Server Error\"}");
         }

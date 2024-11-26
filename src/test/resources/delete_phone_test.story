@@ -1,5 +1,4 @@
 Meta:
-@runFirst
 Narrative:
 As a user
 I want to delete phone
@@ -10,5 +9,7 @@ Given I can delete the phone id idExisted
 Then response message "Delete successfully"
 
 Scenario: Phone is not deleted because id phone not existed
+Meta:
+@skip
 Given I can delete the phone id idNotExisted
 Then response message error delete

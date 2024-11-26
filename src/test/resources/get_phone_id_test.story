@@ -6,7 +6,6 @@ I want to find the phone by ID
 
 Scenario: Phone is found by ID
 Meta:
-@runFirst
 Given I can fetch phone by ID idExisted
 Then response phone information
 
