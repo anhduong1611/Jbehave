@@ -29,7 +29,7 @@ public class CommonPhoneMethod {
         } catch (Exception e) {
             response = ResponseEntity.status(500).body("{\"error\": \"Internal Server Error\"}");
         }
-        System.out.println(response.getBody());
+        System.out.println("response.getBody(): "+response.getBody());
         return  response;
     }
     public static void savePhoneIDToGlobalVar(String response) throws JsonProcessingException {
