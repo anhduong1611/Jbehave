@@ -25,7 +25,7 @@ public class GetListPhoneSteps {
 
     @Then("response list of phones")
     public void thenResponseListOfUser() throws JsonProcessingException {
-        assertEquals(201,response.getStatusCodeValue(),"Verify status code is 200");
+        assertEquals(200,response.getStatusCodeValue(),"Verify status code is 200");
         HttpHeaders headers = response.getHeaders();
         assertEquals("application/json",headers.getContentType().toString(), "Verify content type");
         Set<String> attributes = Set.of("id","name","data");
