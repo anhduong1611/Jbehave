@@ -11,6 +11,5 @@ Then response phone information
 
 Scenario: Phone is not found by ID because ID not existed
 Meta:
-@skip
 Given I can fetch phone by ID idNotExisted
 Then response message error notFound

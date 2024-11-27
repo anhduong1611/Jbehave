@@ -1,5 +1,4 @@
 Meta:
-@skip
 Narrative:
 As a user
 I want to get list of phones

@@ -22,7 +22,7 @@ public abstract class BaseTest extends JUnitStory {
 
         String[] metaFiltersArray = metaFilter.split(",");
         configuredEmbedder().embedderControls().doGenerateViewAfterStories(true).doIgnoreFailureInStories(true)
-                .doIgnoreFailureInView(true);
+                .doIgnoreFailureInView(true).doVerboseFailures(true).doVerboseFiltering(true);
         configuredEmbedder().useMetaFilters(List.of(metaFiltersArray));
     }
     @Override
@@ -32,6 +32,8 @@ public abstract class BaseTest extends JUnitStory {
                 .useStoryReporterBuilder(new StoryReporterBuilder()
                         .withDefaultFormats()
                         .withFormats(CONSOLE,TXT)
+                        .withFailureTrace(true)
+                        .withFailureTraceCompression(true)
                         .withReporters(new AllureJbehave5()));
     }
 
