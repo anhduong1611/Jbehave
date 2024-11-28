@@ -5,16 +5,22 @@ pipeline {
         GIT_REPO_URL = 'https://github.com/anhduong1611/Jbehave.git'
     }
     stages {
-        stage('Clone Repository') {
+        stage('Checkout Code') {
             steps {
-                script {
-                    git credentialsId: "${GIT_CREDENTIALS_ID}", url: "${GIT_REPO_URL}", branch: 'main'
-                }
+                // Clone Git repository
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/main']],
+                    userRemoteConfigs: [[
+                        url: 'https://github.com/anhduong1611/Jbehave.git',
+                        credentialsId: 'GitHub-Token'
+                    ]]
+                ])
             }
         }
         stage('Run Tests') {
             steps {
-                bat 'mvn clean verify'
+                bat 'mvn clean test'
             }
         }
         stage('Generate Allure Report') {
