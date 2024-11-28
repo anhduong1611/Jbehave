@@ -34,7 +34,7 @@ public class DeletePhoneSteps {
 
     @Then("response message \"Delete successfully\"")
     public void thenResponseMessageDeleteSuccessfully() {
-        assertEquals(201,response.getStatusCodeValue(),"Verify status code is 200");
+        assertEquals(200,response.getStatusCodeValue(),"Verify status code is 200");
         HttpHeaders headers = response.getHeaders();
         assertEquals("application/json",headers.getContentType().toString(), "Verify content type");
     }
