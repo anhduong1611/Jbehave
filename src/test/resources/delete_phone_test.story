@@ -1,5 +1,5 @@
 Meta:
-@skip
+@feature
 Narrative:
 As a user
 I want to delete phone

@@ -13,6 +13,9 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class CommonPhoneMethod {
     public static ResponseEntity<String>  sendUrlByMethodWithRequestBody(String url, HttpMethod method, String requestBody) throws URISyntaxException, IOException {
@@ -37,5 +40,15 @@ public class CommonPhoneMethod {
         JsonNode rootNode = objectMapper.readTree(response);
         String id = rootNode.get("id").asText();
         GlobalVariables.setIdPhone(id);
+    }
+    public static List<String> getMetaFiltersList() {
+        String metaFilter = System.getProperty("meta.filter", "");
+        List<String> metaFiltersArray = new ArrayList<>(Arrays.asList(metaFilter.split(",")));
+//        // Luôn thêm "priority high" nếu chưa tồn tại
+//        if (metaFiltersArray.stream().noneMatch(filter -> filter.contains("+priority high"))) {
+//            metaFiltersArray.add("+priority high");
+//        }
+        System.out.println("Meta Filters "+metaFiltersArray.toString());
+        return metaFiltersArray;
     }
 }

@@ -1,5 +1,6 @@
 Meta:
-@skip
+@priority
+@feature
 Narrative:
 As a user
 I want to add phone
