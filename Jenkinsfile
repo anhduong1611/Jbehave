@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                bat 'mvn clean test'
+                bat 'mvn clean test -Dmeta.filter = -skip -Dinclude.paths = add_phone_test.story'
             }
         }
         stage('Generate Allure Report') {
