@@ -21,7 +21,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                bat 'mvn clean test -Dmeta.filter = -skip'
+                bat 'mvn clean test '
             }
         }
         stage('Generate Allure Report') {
