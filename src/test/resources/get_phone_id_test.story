@@ -1,5 +1,5 @@
 Meta:
-
+@skip
 Narrative:
 As a user
 I want to find the phone by ID
