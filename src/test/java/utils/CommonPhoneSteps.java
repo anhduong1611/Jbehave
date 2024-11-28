@@ -28,7 +28,7 @@ public class CommonPhoneSteps {
         System.out.println("BEFORE STORY RESET ID PHONE");
         GlobalVariables.setIdPhone(null);
     }
-    @Then("respons e message error $action")
+    @Then("response message error $action")
     @Alias("show message $action")
     public void thenResponseMessageErrorUpdate() throws JsonProcessingException {
         this.response = this.responseServices.getResponse();
