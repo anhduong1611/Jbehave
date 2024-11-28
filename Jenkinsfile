@@ -5,16 +5,9 @@ pipeline {
         GIT_REPO_URL = 'https://github.com/anhduong1611/Jbehave.git'
     }
     stages {
-        stage('Clone Repository') {
-            steps {
-                script {
-                    git credentialsId: "${GIT_CREDENTIALS_ID}", url: "${GIT_REPO_URL}", branch: 'main'
-                }
-            }
-        }
         stage('Run Tests') {
             steps {
-                bat 'mvn clean verify'
+                bat 'mvn clean test'
             }
         }
         stage('Generate Allure Report') {
