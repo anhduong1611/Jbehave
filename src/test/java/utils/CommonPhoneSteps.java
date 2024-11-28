@@ -1,9 +1,7 @@
 package utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.jbehave.core.annotations.Alias;
-import org.jbehave.core.annotations.Named;
-import org.jbehave.core.annotations.Then;
+import org.jbehave.core.annotations.*;
 import org.junit.Test;
 import org.springframework.http.ResponseEntity;
 
@@ -24,7 +22,13 @@ public class CommonPhoneSteps {
     public CommonPhoneSteps(ResponseServices responseServices) {
         this.responseServices = responseServices;
     }
-    @Then("response message error $action")
+
+    @BeforeStory
+    public void beforeStory() {
+        System.out.println("BEFORE STORY RESET ID PHONE");
+        GlobalVariables.setIdPhone(null);
+    }
+    @Then("respons e message error $action")
     @Alias("show message $action")
     public void thenResponseMessageErrorUpdate() throws JsonProcessingException {
         this.response = this.responseServices.getResponse();

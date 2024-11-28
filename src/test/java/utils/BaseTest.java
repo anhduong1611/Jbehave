@@ -18,9 +18,8 @@ public abstract class BaseTest extends JUnitStory {
     protected String metaFilter = System.getProperty("meta.filter", "");
     protected String includePath = System.getProperty("include.paths","**/*.story");
     protected String excludePath = System.getProperty("exclude.paths","");
+    protected String[] metaFiltersArray = metaFilter.split(",");
     public BaseTest() {
-
-        String[] metaFiltersArray = metaFilter.split(",");
         configuredEmbedder().embedderControls().doGenerateViewAfterStories(true).doIgnoreFailureInStories(true)
                 .doIgnoreFailureInView(true).doVerboseFailures(true).doVerboseFiltering(true);
         configuredEmbedder().useMetaFilters(List.of(metaFiltersArray));
@@ -41,14 +40,10 @@ public abstract class BaseTest extends JUnitStory {
     public abstract InjectableStepsFactory stepsFactory();
     @Override
     public List<String> storyPaths() {
-
-
-
-        // Sử dụng StoryFinder để tìm các file .story trong thư mục chỉ định
         return new StoryFinder().findPaths(
-                "src/test/resources",   // Đường dẫn cơ bản từ classpath
-                includePath,         // Pattern để tìm file
-                excludePath                   // Loại trừ file (để trống nếu không cần)
+                "src/test/resources",
+                includePath,
+                excludePath
         );
     }
 
