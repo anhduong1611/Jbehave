@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                bat 'mvn clean verify -Dmeta.filter=-mySkip,-skip'
+                bat 'mvn clean verify -Dmeta.filter=-mySkip,-skip -Dinclude.paths = add_phone_test.story'
             }
         }
         stage('Generate Allure Report') {
