@@ -5,6 +5,19 @@ pipeline {
         GIT_REPO_URL = 'https://github.com/anhduong1611/Jbehave.git'
     }
     stages {
+        stage('Checkout Code') {
+            steps {
+                // Clone Git repository
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/main']],
+                    userRemoteConfigs: [[
+                        url: 'https://github.com/anhduong1611/Jbehave.git',
+                        credentialsId: 'GitHub-Token'
+                    ]]
+                ])
+            }
+        }
         stage('Run Tests') {
             steps {
                 bat 'mvn clean test'
