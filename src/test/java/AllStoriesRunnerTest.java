@@ -5,10 +5,8 @@ import utils.BaseTest;
 import utils.CommonPhoneSteps;
 import utils.ResponseServices;
 
-public class AllStoriesRunner extends BaseTest {
+public class AllStoriesRunnerTest extends BaseTest {
     public static ResponseServices responseServices = new ResponseServices();
-
-
     @Override
     public InjectableStepsFactory stepsFactory() {
         return  new InstanceStepsFactory(configuration(),
