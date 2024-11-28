@@ -1,5 +1,3 @@
-package runner;
-
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
 import steps.phone.*;
