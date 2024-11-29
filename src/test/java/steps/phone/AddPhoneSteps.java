@@ -31,7 +31,5 @@ public class AddPhoneSteps {
     public void whenIProccessData() throws JsonProcessingException {
         System.out.println("JsonRecevie"+this.response.getBody());
         CommonPhoneMethod.savePhoneIDToGlobalVar(this.response.getBody());
-    }
-
-
+    }//I change
 }

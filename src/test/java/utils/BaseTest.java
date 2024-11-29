@@ -5,6 +5,7 @@ import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
 import org.jbehave.core.io.LoadFromClasspath;
 import org.jbehave.core.io.StoryFinder;
+import org.jbehave.core.junit.JUnitStories;
 import org.jbehave.core.junit.JUnitStory;
 import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.InjectableStepsFactory;
@@ -14,11 +15,11 @@ import java.util.List;
 
 import static org.jbehave.core.reporters.Format.*;
 
-public abstract class BaseTest extends JUnitStory {
+public abstract class BaseTest extends JUnitStories {
     protected String[] metaFiltersArray = CommonPhoneMethod.getMetaFiltersList();
     public BaseTest() {
         configuredEmbedder().embedderControls().doGenerateViewAfterStories(true).doIgnoreFailureInStories(true)
-                .doIgnoreFailureInView(true).doVerboseFiltering(true).doVerboseFiltering(true);
+                .doIgnoreFailureInView(true).doVerboseFiltering(true);
         configuredEmbedder().useMetaFilters(List.of(metaFiltersArray));
     }
     @Override
