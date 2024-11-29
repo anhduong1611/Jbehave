@@ -6,7 +6,7 @@ import steps.phone.*;
 import utils.BaseTest;
 import utils.CommonPhoneSteps;
 import utils.ResponseServices;
-
+//All
 public class AllStoriesRunnerTest extends BaseTest {
     public static ResponseServices responseServices = new ResponseServices();
     @Override
