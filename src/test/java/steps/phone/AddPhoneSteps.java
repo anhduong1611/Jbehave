@@ -1,13 +1,10 @@
 package steps.phone;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.jbehave.core.annotations.Named;
+import org.jbehave.core.annotations.*;
 import utils.CommonPhoneMethod;
 import utils.GlobalVariables;
 import utils.ResponseServices;
-import org.jbehave.core.annotations.Alias;
-import org.jbehave.core.annotations.Given;
-import org.jbehave.core.annotations.When;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import utils.JsonUtils;
@@ -21,12 +18,11 @@ public class AddPhoneSteps {
     public AddPhoneSteps(ResponseServices responseServices){
         this.responseServices = responseServices;
     }
+
     @Given("I can create a phone with request data json")
     @Alias("I can create a phone with $file")
     public void givenICanCreateAPhone(String file) throws URISyntaxException, IOException {
-        System.out.println("I can create a phone with request data json");
         String requestBody = JsonUtils.readDataJson(file);
-        System.out.println("dataJSON"+requestBody);
         String url = BASEURL+"/objects";
         this.response = CommonPhoneMethod.sendUrlByMethodWithRequestBody(url,HttpMethod.POST,requestBody);
         this.responseServices.setResponse(response);

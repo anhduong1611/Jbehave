@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CommonPhoneMethod {
-    public static ResponseEntity<String>  sendUrlByMethodWithRequestBody(String url, HttpMethod method, String requestBody) throws URISyntaxException, IOException {
+    public static ResponseEntity<String> sendUrlByMethodWithRequestBody(String url, HttpMethod method, String requestBody) throws URISyntaxException, IOException {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response;
         HttpHeaders headers = new HttpHeaders();
@@ -41,14 +41,8 @@ public class CommonPhoneMethod {
         String id = rootNode.get("id").asText();
         GlobalVariables.setIdPhone(id);
     }
-    public static List<String> getMetaFiltersList() {
+    public static String[] getMetaFiltersList() {
         String metaFilter = System.getProperty("meta.filter", "");
-        List<String> metaFiltersArray = new ArrayList<>(Arrays.asList(metaFilter.split(",")));
-//        // Luôn thêm "priority high" nếu chưa tồn tại
-//        if (metaFiltersArray.stream().noneMatch(filter -> filter.contains("+priority high"))) {
-//            metaFiltersArray.add("+priority high");
-//        }
-        System.out.println("Meta Filters "+metaFiltersArray.toString());
-        return metaFiltersArray;
+        return metaFilter.split(",");
     }
 }

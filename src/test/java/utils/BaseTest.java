@@ -15,10 +15,10 @@ import java.util.List;
 import static org.jbehave.core.reporters.Format.*;
 
 public abstract class BaseTest extends JUnitStory {
-    protected String[] metaFiltersArray = CommonPhoneMethod.getMetaFiltersList().toArray(new String[0]);
+    protected String[] metaFiltersArray = CommonPhoneMethod.getMetaFiltersList();
     public BaseTest() {
         configuredEmbedder().embedderControls().doGenerateViewAfterStories(true).doIgnoreFailureInStories(true)
-                .doIgnoreFailureInView(true).doVerboseFailures(true).doVerboseFiltering(true);
+                .doIgnoreFailureInView(true).doVerboseFiltering(true).doVerboseFiltering(true);
         configuredEmbedder().useMetaFilters(List.of(metaFiltersArray));
     }
     @Override
@@ -37,10 +37,9 @@ public abstract class BaseTest extends JUnitStory {
     public abstract InjectableStepsFactory stepsFactory();
     @Override
     public List<String> storyPaths() {
-
          String includePath = System.getProperty("include.paths","**/*.story");
          String excludePath = System.getProperty("exclude.paths","");
-        return new StoryFinder().findPaths(
+         return new StoryFinder().findPaths(
                 "src/test/resources",
                 includePath,
                 excludePath

@@ -25,7 +25,7 @@ public class CommonPhoneSteps {
 
     @BeforeStory
     public void beforeStory() {
-        System.out.println("BEFORE STORY RESET ID PHONE");
+        System.out.println("BEFORE STORY");
         GlobalVariables.setIdPhone(null);
     }
     @Then(value = "response message error $action")
