@@ -17,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class GetPhoneIdSteps {
     private String URL = GlobalVariables.getUrl();
     private ResponseEntity<String> response;
-    private RestTemplate restTemplate = new RestTemplate();
     private ResponseServices context;
     public  GetPhoneIdSteps(ResponseServices context){
         this.context = context;
